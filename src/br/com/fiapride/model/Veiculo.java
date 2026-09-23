@@ -22,15 +22,12 @@ public class Veiculo {
 	public void atualizarPlaca(String novaPlaca) {
 		System.out.println("\nAtualização de placa | modelo: " + this.modelo + " | placa: " + this.placa);	
 		this.setPlaca(novaPlaca);
+		System.out.println("modelo: " + this.modelo + " | placa nova: " + this.placa);
 	}
 	
 	private void setPlaca(String novaPlaca) {
 		if (novaPlaca != null && !novaPlaca.trim().isEmpty()) {
-			String placaAntiga = this.placa;
 			this.placa = novaPlaca;
-			System.out.println("modelo: " + this.modelo);
-			System.out.println("placa antiga: " + placaAntiga);
-			System.out.println("placa nova: " + this.placa);
 		}else {
             System.out.println("\nErro de atualização: A placa informada é inválida!");
         }

@@ -7,7 +7,7 @@ public class Motorista {
 	private double saldo;
 
 	public Motorista(String nome, String cpf) {
-		if (cpf == null || cpf.trim().isempty()) {
+		if (cpf == null || cpf.trim().isEmpty()) {
 			throw new IllegalArgumentException("Erro: CPF obrigatório.");
 		}
 		this.nome = nome;
@@ -32,9 +32,9 @@ public class Motorista {
 			System.out.println("Erro: O valor de recebimento deve ser maior que zero.");
 			return;
 		}
-		this.saldo += valor;
-		System.out.println("Pagamento recebido com sucesso! Saldo atual: " + this.saldo);
-		}
+		this.setSaldo (this.saldo + valor);
+		System.out.println("Pagamento recebido com sucesso! Saldo atual: " + this.getSaldo());
+	}
 		
 	public void sacarSaldo(double valor) {
 		if (valor <= 0) {
@@ -45,8 +45,8 @@ public class Motorista {
 			System.out.println("Erro: Saldo insuficiente para relizar saque.");
 			return;
 		}
-		this.saldo -= valor;
-		System.out.println("Saque realizado com sucesso! Saldo atual: " + this.saldo);
+		this.setSaldo(this.saldo - valor);
+		System.out.println("Saque realizado com sucesso! Saldo atual: " + this.getSaldo());
 		System.out.println();
 	}
 	
@@ -54,15 +54,11 @@ public class Motorista {
 		this.nome = nome;
 	}
 	
-	private void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	
-	private void setSaldo(double valor) {
-		if (valor >= 0) {
-			this.saldo = valor;
+	private void setSaldo(double saldo) {
+		if (saldo >= 0) {
+			this.saldo = saldo;
 		} else {
-			System.out.println("Erro: O valor de saldo deve ser maior que zero.");
+			System.out.println("Erro: O valor de saldo não pode ser negativo.");
 		}
 	}
 
